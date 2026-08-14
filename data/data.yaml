@@ -1,0 +1,15 @@
+# UA-DETRAC YOLO Configuration
+# Absolute path to be defined in Colab (e.g., /content/dataset)
+path: /content/dataset  
+
+# Relative paths to image folders
+train: images/train
+val: images/val
+test: images/test
+
+# Classes (index -> name). Must exactly match our parsing script.
+names:
+  0: car
+  1: bus
+  2: van
+  3: others
