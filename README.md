@@ -1,13 +1,10 @@
-# Beyond Simulated Latency: Edge-Device Vehicle Surveillance Benchmark
+## Project Structure & Implementation Status
 
-This repository contains the dataset ingestion scripts, quantization pipelines, and Android telemetry harness for benchmarking INT8-quantized lightweight object detection models natively on consumer hardware.
-
-## Project Structure
-* `/research` - Literature reviews, experimental logs, and anomaly tracking.
-* `/data` - Parsing and ingestion scripts for the UA-DETRAC dataset. *(Note: Raw dataset files are not hosted here due to size limitations).*
-* `/model` - FP32 training pipelines and INT8 TFLite/ONNX quantization scripts for YOLOv10 and YOLOv11.
-* `/android` - A generalized, telemetry-instrumented Android benchmarking harness for capturing real-time device battery, thermal, and memory strains.
-* `/paper` - LaTeX source files for the resulting academic manuscript.
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+| Path | Status | Description |
+| :--- | :--- | :--- |
+| `/data` | ✅ Implemented | UA-DETRAC parser, ignore-region masking, sequence-level splits (`split_manifest.json`) |
+| `/model` | ✅ Implemented | YOLOv10n/YOLOv11n FP32 training pipelines ($640 \times 640$, $320 \times 320$) |
+| `/research` | 🔄 Active | Literature review, methodology logs, experiment tracking schema |
+| `/tests` | 🔄 Active | Unit tests for split validation, subsampling, and annotation integrity |
+| `/android` | 📋 Planned (Week 4) | Telemetry-instrumented benchmarking harness (latency, thermal, battery) |
+| `/paper` | 📋 Planned (Week 9) | TMLR LaTeX manuscript source and artifact citations |
