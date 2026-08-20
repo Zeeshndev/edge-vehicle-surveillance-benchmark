@@ -15,3 +15,9 @@
 
 ## 4. Current Status
 * **FP32 Baselines:** YOLOv10n (640x640) training is complete and weights have been secured via GitHub Releases. YOLOv11n (640x640) is currently actively training.
+
+## 5. Methodological & Evaluation Controls
+* **Evaluation Ignore-Region Handling:** Predictions falling within annotated ignore regions are filtered during evaluation scoring to prevent artificial false-positive penalties.
+* **Temporal Subsampling Boundary:** The `Stride=5` temporal subsampling algorithm is applied strictly to training sequences; validation and test evaluation sequences remain at full frame rate ($1\times$) to preserve real-world continuous traffic distribution.
+* **Hyperparameter Parity:** Both YOLOv10n and YOLOv11n models are fine-tuned under an identical training recipe (SGD/AdamW auto-optimizer, cosine LR schedule, initial lr0=0.01, batch size 32, patience 15) to isolate architectural impact.
+* **Catch-All Class Behavior:** Lower average precision on the `Others` category (e.g., tractors, heavy machinery) is attributable to extreme inter-class variance in the UA-DETRAC dataset rather than labeling artifacts.
